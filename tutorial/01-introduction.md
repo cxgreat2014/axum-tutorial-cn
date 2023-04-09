@@ -1,35 +1,32 @@
-# Introduction
+# 介绍
 
-## What is Axum?
+## 什么是 Axum？
 
-[axum] is a web application framework that focuses on ergonomics and
-modularity.
+[axum] 是一个注重人体工程学和模块化的 Web 应用框架。
 
-### Modularity
+### 模块化
 
-[axum] is built on [tower] abstractions. Those abstractions:
+[axum] 是基于 [tower] 抽象构建的。这些抽象：
 
-- Are protocol agnostic. Which means you can use same code for multiple
-  protocols like http and grpc.
-- Has built in middlewares and utilities which you can use with [axum].
-- Allow lower level access. This makes it easy to create libraries to work with
-  [axum]. You can find useful libraries [here][ecosystem].
+- 是协议无关的，这意味着你可以为多个协议（如 http 和 grpc）使用相同的代码。
+- 有内置的中间件和工具，可与 [axum] 一起使用。
+- 允许更低级别的访问。这使得创建用于与 [axum] 工作的库变得容易。你可以在[这里][ecosystem]找到有用的库。
 
-## Why use Axum?
+## 为什么使用 Axum？
 
-[axum] doesn't reinvent everything.
+[axum] 不会重新发明所有东西。
 
-Commonly, an [axum] app uses:
+通常，一个[axum] 应用程序使用：
 
-- [tokio] for async runtime and utilities, 
-- [hyper] for http server.
-- [tower] and [tower-http] for middleware and utilities.
+- 用于异步运行时和实用程序的 [tokio]，
+- 用于 HTTP 服务器的 [hyper]。
+- 用于中间件和实用程序的 [tower] 和 [tower-http]。
 
-All of those libraries are very well tested, maintained and used in production.
+所有这些库都经过了非常好的测试、维护和生产使用。
 
-# [Next](02-layout.md)
+# [下一页](02-layout.md)
 
-Overview of [axum] project layouts.
+关于 [axum] 项目布局的概述。
 
 [axum]: https://github.com/tokio-rs/axum
 [ecosystem]: https://github.com/tokio-rs/axum/blob/main/ECOSYSTEM.md
