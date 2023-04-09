@@ -1,6 +1,6 @@
-# Layout
+# 布局
 
-Directory structure of a common [axum] project:
+一个普通的 [axum] 项目的目录结构：
 
 ```
 axum-project/
@@ -9,7 +9,7 @@ axum-project/
     └── main.rs
 ```
 
-`Cargo.toml` file contains dependencies. Example:
+`Cargo.toml` 文件包含依赖项。例如：
 
 ```toml
 [package]
@@ -22,7 +22,7 @@ axum = "0.5"
 tokio = { version = "1", features = ["full"] }
 ```
 
-`src/main.rs` contains code. Example:
+`src/main.rs` 包含代码。例如：
 
 ```rust
 use axum::{routing::get, Router};
@@ -40,10 +40,9 @@ async fn main() {
 
 ## Workspace
 
-This tutorial uses a workspace for example projects. Workspace keeps projects
-grouped and projects share common dependencies.
+本教程使用工作区进行示例项目。工作区使得项目的组织更加清晰，而且项目共享公用依赖项。
 
-Directory structure of a workspace:
+工作区的目录结构：
 
 ```
 workspace/
@@ -58,7 +57,7 @@ workspace/
         └── main.rs
 ```
 
-`Cargo.toml` in workspace contains members. Example:
+工作区的 `Cargo.toml` 包含成员。例如：
 
 ```toml
 [workspace]
@@ -69,8 +68,8 @@ members = [
 ]
 ```
 
-# [Next](03-hello-world.md)
+# [下一页](03-hello-world.md)
 
-Create a hello world application.
+创建一个“Hello, World”应用。
 
 [axum]: https://github.com/tokio-rs/axum
