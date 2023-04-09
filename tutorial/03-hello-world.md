@@ -1,6 +1,6 @@
 # Hello World
 
-Add project name to workspace.
+将项目名称添加到工作区。
 
 ```toml
 [workspace]
@@ -10,15 +10,15 @@ members = [
 ]
 ```
 
-Create the project.
+创建项目。
 
 ```
 cargo new hello-world
 ```
 
-## Dependencies
+## 依赖项
 
-Example `Cargo.toml`:
+示例 `Cargo.toml`：
 
 ```toml
 [package]
@@ -31,14 +31,11 @@ axum = "0.5"
 tokio = { version = "1", features = ["full"] }
 ```
 
-These dependencies are required to create a bare minimum [axum] application.
+这些依赖项是创建最小的 [axum] 应用程序所必需的。
 
-[tokio] is a really popular library to work with async code. [rust] doesn't
-come with a default async runtime, this leaves the choice to users. [axum] only
-supports [tokio] runtime. But don't worry [tokio] has everything you can
-possibly want from an async library.
+[tokio] 是一个非常流行的用于处理异步代码的库。[rust] 没有默认的异步运行时，这使得选择留给了用户。[axum] 仅支持 [tokio] 运行时。但是不用担心，[tokio] 提供了您可能需要的所有异步库。
 
-## Code
+## 代码
 
 ```rust
 use axum::{routing::get, Router};
@@ -46,22 +43,21 @@ use std::net::SocketAddr;
 
 #[tokio::main]
 async fn main() {
-    // Route all requests on "/" endpoint to anonymous handler.
+    // 将所有请求路由到匿名处理程序的“/”端点。
     //
-    // A handler is an async function which returns something that implements
-    // `axum::response::IntoResponse`.
+    // 处理程序是一个异步函数，返回实现了 `axum::response::IntoResponse` 的对象。
 
-    // A closure or a function can be used as handler.
+    // 可以使用闭包或函数作为处理程序。
 
     let app = Router::new().route("/", get(handler));
     //        Router::new().route("/", get(|| async { "Hello, world!" }));
 
-    // Address that server will bind to.
+    // 服务器将绑定到的地址。
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
 
-    // Use `hyper::server::Server` which is re-exported through `axum::Server` to serve the app.
+    // 使用 `hyper::server::Server`，该服务通过 `axum::Server` 重新导出以提供该应用程序。
     axum::Server::bind(&addr)
-        // Hyper server takes a make service.
+        // Hyper 服务器使用 make service。
         .serve(app.into_make_service())
         .await
         .unwrap();
@@ -72,19 +68,19 @@ async fn handler() -> &'static str {
 }
 ```
 
-## Run
+## 运行
 
-Execute this command in workspace directory:
+在工作区目录中执行此命令：
 
 ```
 cargo run --bin hello-world
 ```
 
-Enter `http://localhost:3000` in browser.
+在浏览器中输入 `http://localhost:3000`。
 
-# [Next](04-generate-random-number.md)
+# [下一页](04-generate-random-number.md)
 
-Create an application that responds with a random number from query parameters.
+创建一个应用程序，它从查询参数中响应一个随机数字。
 
 [axum]: https://crates.io/crates/axum
 [rust]: https://www.rust-lang.org
